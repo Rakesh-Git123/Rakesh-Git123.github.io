@@ -23,3 +23,29 @@ header ul li a{
     color: black;
     font-size: 18px;
 }
+
+main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+    margin-top: 30px;
+}
+
+main .left{
+    width: 500px;
+}
+
+main .left .p1{
+    font-size: 30px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+main .right img{
+    border-radius: 20px;
+}
+
+main .left .btn1{
+    background-color: cyan;
+    cursor: pointer;
+}

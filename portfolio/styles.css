@@ -24,28 +24,59 @@ header ul li a{
     font-size: 18px;
 }
 
-main{
+
+main .section1{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
     padding: 0 80px;
-    margin-top: 30px;
 }
 
-main .left{
+main .section1 .left{
     width: 500px;
 }
 
-main .left .p1{
+main .section1 .left .p1{
     font-size: 30px;
     margin-bottom: 0;
     font-weight: bold;
 }
-main .right img{
+main .section1 .right img{
     border-radius: 20px;
 }
 
-main .left .btn1{
+main .section1 .left .btn1{
     background-color: cyan;
     cursor: pointer;
+}
+
+main .s-div{
+    background-color: aquamarine;
+    padding: 10px 80px 40px 80px;
+    margin-bottom: 50px;
+}
+
+main .section2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main .section2 div{
+    height: 200px;
+    width: 350px;
+    border: 2px solid red;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .service-text{
+    text-align: center;
+}
+
+main .section2 div p{
+    padding: 0 20px;
 }

@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Project 1</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="l-form">
+      <h1>Login form</h1>
+      <form onsubmit="handleSubmit(event)">
+        <input
+          type="text"
+          id="email"
+          placeholder="Enter your email"
+          required
+        /><br /><br />
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+        /><br /><br />
+        <button type="submit">Submit</button>
+        <p>Not have an account? <a href="./signup.html">Signup</a></p>
+      </form>
+    </div>
+  </body>
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const dataString = localStorage.getItem("users");
+
+      if (!dataString) {
+        alert("No user found. Please sign up first.");
+        return;
+      }
+
+      const users = JSON.parse(dataString);
+      const user = users.find((user) => user.email === email);
+
+      if (!user) {
+        alert("No user found. Please sign up first.");
+        return;
+      }
+
+      if (user.email === email && user.password === password) {
+        alert(`Welcome ${user.name}`);
+        email.value = "";
+        name.value = "";
+      } else {
+        alert("Access denied: Incorrect email or password");
+      }
+    }
+  </script>
 </html>

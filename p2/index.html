@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Project 2</h1>
-</body>
+  </head>
+
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .container div {
+      align-items: center;
+      border: 1px solid gray;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+    }
+  </style>
+
+  <body onload="loginForm()">
+    <div id="root" class="container"></div>
+  </body>
+
+  <script>
+    const loginForm = () => {
+      const str = `<div>
+    <h3>Login Form</h3>
+    <input type="text" id="email" placeholder="Enter your email" required><br><br>
+    <input type="password" id="password" placeholder="Enter your password" required><br>
+    <p><button onclick='showHome()'>Submit</button></p>
+    <p><button onclick='registerForm()'>Create Account</button></p>
+    `;
+      root.innerHTML = str + "</div>";
+    };
+
+    const registerForm = () => {
+      const str = `<div>
+    <h3>Registration Form</h3>
+    <input type="text" placeholder="Enter yout name" id="name"required><br><br>
+    <input type="email" placeholder="Enter your email" id="email" required><br><br>
+    <input type="password" placeholder="Enter your password" id="password" required><br>
+    <p><button onclick='loginForm()'>Submit</button></p>
+    <p><button onclick='loginForm()'>Already a member? Login here...</button></p>
+    `;
+      root.innerHTML = str + "</div>";
+    };
+
+    const showHome = () => {
+      const str = `<div>
+    <h3>Welcome</h3>
+    <p><button onclick='loginForm()'>Logout</button></p>
+    `;
+      root.innerHTML = str + "</div>";
+    };
+  </script>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="s-form">
+        <h1>Signup form</h1>
+        <form action="" onsubmit="handleSubmit(event)">
+            <input type="text" placeholder="Enter yout name" id="name"required><br><br>
+            <input type="email" placeholder="Enter your email" id="email" required><br><br>
+            <input type="password" placeholder="Enter your password" id="password" required><br><br>
+            <button>Submit</button>
+            <p>Already have an account? <a href="./index.html">Login</a></p>
+        </form>
+    </div>
+</body>
+<script>
+    function handleSubmit(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    let newUser = { name, email, password };
+
+    let existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    let userExists = existingUsers.some(user => user.email === email);
+    if (userExists) {
+        alert("User already exists with this email!");
+        return;
+    }
+    existingUsers.push(newUser);
+    localStorage.setItem("users", JSON.stringify(existingUsers));
+    window.location.href = "./index.html";
+}
+
+</script>
+</html>

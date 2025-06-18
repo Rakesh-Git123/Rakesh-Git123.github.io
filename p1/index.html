@@ -3,90 +3,157 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Login/Register App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        padding-top: 50px;
+      }
+
+      .login,
+      .register {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 8px;
+        width: 300px;
+      }
+
+      h3 {
+        text-align: center;
+        color: #333;
+      }
+
+      input[type='text'],
+      input[type='password'] {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 5px;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .users {
+        margin-top: 20px;
+        background-color: #f9f9f9;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .users p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #555;
+      }
+
+      #errorTxt {
+        color: red;
+        font-size: 14px;
+        text-align: center;
+      }
+    </style>
   </head>
 
-  <style>
-    .container {
-    display: flex;
-    justify-content: center;
-}
-
-.container div {
-    align-items: center;
-    border: 1px solid gray;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-
-}
-  </style>
-  
   <body onload="loginForm()">
     <div id="root" class="container"></div>
-    <script src="script.js" />
+
+    <script>
+      let users = [];
+
+      const validateUser = () => {
+        let email = document.getElementById("txtEmail1").value;
+        let pass = document.getElementById("txtPass1").value;
+        const found = users.find(
+          (value) => value.email === email && value.pass === pass
+        );
+        if (found) {
+          showHome();
+        } else {
+          document.getElementById("errorTxt").innerHTML = "Access Denied";
+        }
+      };
+
+      const loginForm = () => {
+        const str = `
+        <div class='login'>
+          <h3>Login Form</h3>
+          <p id='errorTxt'></p>
+          <input type='text' id='txtEmail1' placeholder='Email'>
+          <input type='password' id='txtPass1' placeholder='Password'>
+          <button onclick='validateUser()'>Submit</button>
+          <button onclick='registerForm()'>Create Account</button>
+          <div class="users" id="users"></div>
+        </div>`;
+        root.innerHTML = str;
+        showUsers();
+      };
+
+      const showUsers = () => {
+        let a = document.getElementById("users");
+        a.innerHTML = "<strong>Registered Users:</strong>";
+        users.forEach((d) => {
+          const p = document.createElement("p");
+          p.textContent = `${d.name} (${d.email})`;
+          a.appendChild(p);
+        });
+      };
+
+      const saveUser = () => {
+        let name = document.getElementById("txtName").value;
+        let email = document.getElementById("txtEmail").value;
+        let pass = document.getElementById("txtPass").value;
+        users.push({ name, email, pass });
+        loginForm();
+      };
+
+      const registerForm = () => {
+        const str = `
+        <div class='register'>
+          <h3>Registration Form</h3>
+          <input type='text' id='txtName' placeholder='Name'>
+          <input type='text' id='txtEmail' placeholder='Email'>
+          <input type='password' id='txtPass' placeholder='Password'>
+          <button onclick='saveUser()'>Submit</button>
+          <button onclick='loginForm()'>Already a member? Login</button>
+        </div>`;
+        root.innerHTML = str;
+      };
+
+      const showHome = () => {
+        const str = `
+        <div class='login'>
+          <h3>Welcome</h3>
+          <button onclick='loginForm()'>Logout</button>
+        </div>`;
+        root.innerHTML = str;
+        showUsers();
+      };
+    </script>
   </body>
 </html>
-
-<script>
-  let users = [];
-  let user = {};
-
-  const validateUser = () => {
-    let email = document.getElementById("txtEmail1").value;
-    let pass = document.getElementById("txtPass1").value;
-    const found = users.find(
-      (value) => value.email === email && value.pass === pass
-    );
-    if (found) {
-      showHome();
-    } else {
-      document.getElementById("errorTxt").innerHTML = "Access Denied";
-    }
-  };
-
-  const loginForm = () => {
-    const str = `<div>
-    <h3>Login Form</h3>
-    <p id='errorTxt'></p>
-    <p><input type='text' id='txtEmail1'></p>
-    <p><input type='password' id='txtPass1'></p>
-    <p><button onclick='validateUser()'>Submit</button></p>
-    <p><button onclick='registerForm()'>Create Account</button></p>
-    `;
-    root.innerHTML = str + "</div>";
-  };
-
-  const saveUser = () => {
-    let name = document.getElementById("txtName").value;
-    let email = document.getElementById("txtEmail").value;
-    let pass = document.getElementById("txtPass").value;
-    users.push({
-      name,
-      email,
-      pass,
-    });
-    loginForm();
-  };
-
-  const registerForm = () => {
-    const str = `<div>
-    <h3>Registration Form</h3>
-    <p><input type='text' id='txtName'></p>
-    <p><input type='text' id='txtEmail'></p>
-    <p><input type='password' id='txtPass'></p>
-    <p><button onclick='saveUser()'>Submit</button></p>
-    <p><button onclick='loginForm()'>Already a member? Login here...</button></p>
-    `;
-    root.innerHTML = str + "</div>";
-  };
-
-  const showHome = () => {
-    const str = `<div>
-    <h3>Welcome</h3>
-    <p><button onclick='loginForm()'>Logout</button></p>
-    `;
-    root.innerHTML = str + "</div>";
-  };
-</script>

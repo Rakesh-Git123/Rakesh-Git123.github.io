@@ -1,58 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <header>
-      <h1>Rakesh Kumar</h1>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </header>
-    <main>
-      <section class="section1">
-        <section class="left">
-          <p class="p1">MERN STACK DEVELOPER</p>
-          <p class="p2">
-            As a passionate Web developer, I thrive on creating beautiful and
-            intuitive websites that delight users
-          </p>
-          <button class="btn1">View My projects</button>
-        </section>
-        <section class="right">
-          <img
-            src="https://fastly.picsum.photos/id/1/5000/3333.jpg?hmac=Asv2DU3rA_5D1xSe22xZK47WEAN0wjWeFOhzd13ujW4"
-            alt=""
-            height="250px"
-          />
-        </section>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Rakesh Kumar Portfolio</title>
+</head>
+<body>
+  <header>
+    <h1>Rakesh Kumar</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </header>
 
-      <div class="s-div">
-        <h1 class="service-text">Services</h1>
-        <section class="section2">
-          <div>
-            <h2>Frontend Development</h2>
-            <p>To me, frontend development means creating simple, responsive, and user-friendly interfaces that make services easy to use and visually appealing</p>
-          </div>
-          <div>
-            <h2>Backend Development</h2>
-            <p>To me, backend development is about building secure, efficient, and scalable systems that power the core functionality of a service</p>
-          </div>
-          <div>
-            <h2>Mobile App Development</h2>
-            <p>To me, mobile app development means creating smooth, fast, and user-friendly apps that offer a great experience on any device</p>
-          </div>
-        </section>
-      </div>
-    </main>
-  </body>
+  <main>
+    <!-- Home Section -->
+    <section id="home" class="section1">
+      <section class="left">
+        <p class="p1">MERN STACK DEVELOPER</p>
+        <p class="p2">
+          As a passionate Web developer, I thrive on creating beautiful and
+          intuitive websites that delight users.
+        </p>
+        <button class="btn1">View My Projects</button>
+      </section>
+      <section class="right">
+        <img
+          src="https://fastly.picsum.photos/id/1/5000/3333.jpg?hmac=Asv2DU3rA_5D1xSe22xZK47WEAN0wjWeFOhzd13ujW4"
+          alt="Developer image"
+          height="250px"
+        />
+      </section>
+    </section>
+
+    <!-- Services Section -->
+    <div class="s-div" id="services">
+      <h1 class="service-text">Services</h1>
+      <section class="section2">
+        <div>
+          <h2>Frontend Development</h2>
+          <p>Creating responsive, user-friendly interfaces with modern web technologies.</p>
+        </div>
+        <div>
+          <h2>Backend Development</h2>
+          <p>Building secure and efficient server-side applications and APIs.</p>
+        </div>
+        <div>
+          <h2>Mobile App Development</h2>
+          <p>Developing smooth and fast mobile apps for Android and iOS platforms.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="s-div" id="projects">
+      <h1 class="service-text">Projects</h1>
+      <section class="section2">
+        <div>
+          <h2>BlogVerse</h2>
+          <p>A full-stack blog platform built with React, Node.js, and MongoDB.</p>
+        </div>
+        <div>
+          <h2>Grocery Store</h2>
+          <p>A React and PHP-based grocery e-commerce website with cart and category filters.</p>
+        </div>
+        <div>
+          <h2>MockMate</h2>
+          <p>An AI-based mock interview platform with voice response and feedback.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="s-div" id="skills">
+      <h1 class="service-text">Skills</h1>
+      <section class="section2">
+        <div>
+          <h2>Languages</h2>
+          <p>JavaScript, Java, PHP, Python</p>
+        </div>
+        <div>
+          <h2>Frameworks</h2>
+          <p>React, Express, Laravel, Bootstrap</p>
+        </div>
+        <div>
+          <h2>Tools & Database</h2>
+          <p>Git, GitHub, MongoDB, MySQL, Postman</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="s-div" id="contact">
+      <h1 class="service-text">Contact</h1>
+      <section class="section2">
+        <div>
+          <h2>Email</h2>
+          <p>rakesh@example.com</p>
+        </div>
+        <div>
+          <h2>Phone</h2>
+          <p>+91 98765 43210</p>
+        </div>
+        <div>
+          <h2>LinkedIn</h2>
+          <p><a href="#" target="_blank">linkedin.com/in/rakeshkumar</a></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer style="text-align:center; padding:15px; background:#333; color:white;">
+    &copy; 2025 Rakesh Kumar. All rights reserved.
+  </footer>
+</body>
 </html>

@@ -77,3 +77,59 @@ db.students.aggregate([
     {studentId:  ObjectId('685cdd57e64e7c25ef748a60'),city:"Dubai",country:"UAE"}
 
   ])
+
+
+  db.employees.aggregate([
+    {
+      $project:{
+        _id:0,
+        name:1,
+        salary:1,
+        Grade:{$count:[{$gt:["$salary",2000]},"Grade A","Grade B"]}
+      }
+    }
+  ])
+
+
+  db.employees.aggregate([
+    {
+      $project:{
+        _id:0,
+        name:1,
+        salary:1,
+        Grade:{if:{$gt:["$salary",2000]},then:"Grade A",else :"Grade B"}
+      }
+    }
+  ])
+  db.employees.aggregate([
+    {
+      $project: {
+        _id: 0,
+        name: 1,
+        salary: {
+          $cond: {
+            if: { $eq: ["$department", "IT"] },
+            then: 2500,
+            else: 1000
+          }
+        }
+      }
+    }
+  ])
+  
+  db.createView('depWiseSalaryView',"employees",[
+    {$match:{salary:{$gt:2000}}},
+    {$project:{
+      _id:0,
+      name:1,
+      department:1,
+      salary:1
+    }}
+  ])
+
+  db.employees.find({name:{$regex:"Cathy"}})
+  db.employees.find({name:{$regex:"cathy"}})
+
+
+
+

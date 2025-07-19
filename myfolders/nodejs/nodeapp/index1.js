@@ -17,3 +17,8 @@ import fs from "fs"
 //     if(err) throw err;
 // })
 
+
+fs.unlink("newfile.txt",(err)=>{
+    if(err) throw err;
+})
+

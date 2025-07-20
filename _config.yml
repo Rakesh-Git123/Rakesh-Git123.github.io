@@ -1,2 +1,13 @@
+title: Rakesh's Site
+description: My personal site
+theme: jekyll-theme-primer
+
 exclude:
   - node_modules
+  - vendor
+  - README.md
+  - package-lock.json
+  - package.json
+  - yarn.lock
+  - "**/node_modules/**"
+  - "**/*.md"
